@@ -1,6 +1,7 @@
 package com.facecheck.core.entity;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Comment {
     private int time;
@@ -12,6 +13,23 @@ public class Comment {
         this.time = time;
         this.user = user;
         this.content = content;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Comment comment = (Comment) o;
+        return time == comment.time &&
+                Objects.equals(user, comment.user) &&
+                Objects.equals(content, comment.content) &&
+                Objects.equals(usersLike, comment.usersLike);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(time, user, content, usersLike);
     }
 
     public int getTime() {

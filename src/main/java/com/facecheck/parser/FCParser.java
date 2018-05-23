@@ -1,15 +1,12 @@
 package com.facecheck.parser;
 
-import com.facecheck.core.entity.Activity;
-import com.facecheck.core.entity.Information;
-import com.facecheck.core.entity.Post;
-import com.facecheck.core.entity.User;
+import com.facecheck.core.entity.*;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
 
 public class FCParser {
+    private static final FCParser parser = new FCParser();
     public User parseUser(URL url) {
         User user = new User();
         user.setUrl(url);
@@ -23,6 +20,14 @@ public class FCParser {
         return user;
     }
 
+    private FCParser(){
+
+    }
+
+    public static FCParser getInstance(){
+        return parser;
+    }
+
     private void parseInformation(User user) {
         user.setInformation(new ArrayList<Information>());
     }
@@ -32,7 +37,7 @@ public class FCParser {
     }
 
     private void parsePhotoes(User user) {
-        user.setPhotoes(new ArrayList<Image>());
+        user.setPhotos(new ArrayList<Image>());
     }
 
     private void parsePosts(User user) {

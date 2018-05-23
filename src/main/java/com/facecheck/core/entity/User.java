@@ -1,10 +1,11 @@
 package com.facecheck.core.entity;
 
-import java.awt.*;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
+    private String id;
     private URL url;
     private String firstName;
     private String lastName;
@@ -14,8 +15,24 @@ public class User {
     private List<Information> information;
     private List<User> friends;
     private List<Image> profileImages;
-    private List<Image> photoes;
+    private List<Image> photos;
 
+    public User() {
+        posts = new ArrayList<>();
+        activities = new ArrayList<>();
+        information = new ArrayList<>();
+        friends = new ArrayList<>();
+        profileImages = new ArrayList<>();
+        photos = new ArrayList<>();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public URL getUrl() {
         return url;
@@ -89,11 +106,11 @@ public class User {
         this.profileImages = profileImages;
     }
 
-    public List<Image> getPhotoes() {
-        return photoes;
+    public List<Image> getPhotos() {
+        return photos;
     }
 
-    public void setPhotoes(List<Image> photoes) {
-        this.photoes = photoes;
+    public void setPhotos(List<Image> photos) {
+        this.photos = photos;
     }
 }

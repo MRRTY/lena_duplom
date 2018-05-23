@@ -2,6 +2,7 @@ package com.facecheck.core.entity;
 
 import java.awt.*;
 import java.util.List;
+import java.util.Objects;
 
 public class Post {
     private int time;
@@ -14,6 +15,25 @@ public class Post {
     public Post(int time, String content) {
         this.time = time;
         this.content = content;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Post post = (Post) o;
+        return time == post.time &&
+                Objects.equals(content, post.content) &&
+                Objects.equals(images, post.images) &&
+                Objects.equals(comments, post.comments) &&
+                Objects.equals(usersLike, post.usersLike) &&
+                Objects.equals(location, post.location);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(time, content, images, comments, usersLike, location);
     }
 
     public int getTime() {

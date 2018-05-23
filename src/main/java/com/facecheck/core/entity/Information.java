@@ -1,5 +1,7 @@
 package com.facecheck.core.entity;
 
+import java.util.Objects;
+
 public class Information {
     private int addTime;
     private int removeTime;
@@ -11,6 +13,23 @@ public class Information {
         this.removeTime = removeTime;
         this.key = key;
         this.value = value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Information that = (Information) o;
+        return addTime == that.addTime &&
+                removeTime == that.removeTime &&
+                Objects.equals(key, that.key) &&
+                Objects.equals(value, that.value);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(addTime, removeTime, key, value);
     }
 
     public int getAddTime() {
