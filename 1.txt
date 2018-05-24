@@ -1,0 +1,9 @@
+[CHANGE] First Name from asfd to sdfff
+[CHANGE] Last Name from dsfsd to dvdvgf
+[CHANGE] First Name from asfd to sdfff
+[CHANGE] Last Name from dsfsd to dvdvgf
+[REMOVE] Friend com.facecheck.core.entity.User@34a245ab
+[REMOVE] Photo com.facecheck.core.entity.Image@e1781
+[REMOVE] Post [com.facecheck.core.entity.Post@d87fc279]
+[CHANGE] First Name from asfd to sdfff
+[CHANGE] Last Name from dsfsd to dvdvgf

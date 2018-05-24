@@ -1,7 +1,10 @@
 package com.facecheck.core;
 
+import com.facecheck.core.entity.Image;
+import com.facecheck.core.entity.Post;
 import com.facecheck.core.entity.User;
 import com.facecheck.core.service.FCDeferential;
+import com.facecheck.core.service.FCRater;
 import com.facecheck.parser.FCParser;
 
 import java.net.URL;
@@ -11,18 +14,25 @@ import java.util.List;
 public class FCCore {
     private FCParser parser = FCParser.getInstance();
     private FCDeferential deferential = FCDeferential.getInstance();
+    private FCRater rater = FCRater.getInstance();
     private List<User> users;
     public FCCore() {
         users = new ArrayList<User>();
         User user = new User();
-        user.setId("1");
-        user.setFirstName("asfd");
-        user.setLastName("dsfsd");
         User user2 = new User();
         user2.setId("1");
         user2.setFirstName("sdfff");
         user2.setLastName("dvdvgf");
+
+        user.setId("1");
+        user.setFirstName("asfd");
+        user.setLastName("dsfsd");
+        user.getFriends().add(user2);
+        user.getPosts().add(new Post(124,"asdf"));
+        user.getProfileImages().add(new Image());
+
         deferential.def(user,user2);
+        System.out.println(rater.getTotalRate(user));
 
     }
 
